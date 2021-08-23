@@ -1,0 +1,44 @@
+@import "./global.scss";
+@import "./partials/socials";
+
+body {
+  height: 100vh;
+  padding: 2em;
+}
+
+.about-container {
+  background-color: $yellow;
+  height: 100%;
+  //   margin: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  p {
+    height: 100%;
+    padding: 2em;
+    font-size: 3rem;
+  }
+
+  .icon {
+    color: $blue;
+  }
+}
+
+.social-container {
+  width: 100%;
+  position: relative;
+  bottom: 2rem;
+  padding-right: 2rem;
+  a {
+    color: white;
+    padding-left: 0.5rem;
+    transition: transform 250ms;
+  }
+
+  a:hover {
+    color: $dark;
+    transform: translateY(-10px);
+  }
+}

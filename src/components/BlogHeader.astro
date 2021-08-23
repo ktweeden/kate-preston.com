@@ -1,0 +1,58 @@
+<header class="blog-header">
+  <nav>
+    <ul>
+      <li>
+        <a href="/">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="/blog">
+          Blog
+        </a>
+      </li>
+      <li>
+        <a href="/about-me">
+          About Me
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <h1>Kate Preston</h1>
+</header>
+
+<style>
+header {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  height: 5rem;
+}
+article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-subitem {
+  display: flex;
+  flex-grow: 0;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme-text-lighter);
+  font-size: initial;
+  padding: 0.5rem;
+}
+.header-subitem:hover {
+  color: var(--theme-accent);
+}
+.header-subitem svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (max-width: 32em) {
+  .header-subitem {
+    display: none;
+  }
+}
+</style>

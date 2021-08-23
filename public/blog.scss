@@ -1,0 +1,52 @@
+@import "./global.scss";
+@import "./partials/socials";
+@import "./partials/blogHead";
+@import "./partials/mixins";
+
+.content {
+  display: grid;
+  grid-template-areas: "side-l main side-r";
+  grid-template-columns: 20% auto 20%;
+
+  .blog-list {
+    grid-area: main;
+    padding-top: 2em;
+  }
+}
+
+.post-preview {
+  @include hover-transition;
+  margin-bottom: 2em;
+
+  &:hover {
+    @include hover-background-effect($green-transparent);
+  }
+  .title {
+    color: $dark;
+  }
+
+  a:visited {
+    color: $dark;
+  }
+
+  h4 {
+    text-align: right;
+    width: 100%;
+  }
+}
+
+.social-container {
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+
+  a {
+    color: $dark;
+    padding: 0 0.5rem;
+    transition: transform 250ms;
+  }
+
+  a:hover {
+    color: $blue;
+    transform: translateY(-10px);
+  }
+}

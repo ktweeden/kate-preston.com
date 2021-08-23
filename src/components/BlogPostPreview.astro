@@ -1,0 +1,19 @@
+---
+export interface Props {
+  post: any;
+  small?: boolean;
+}
+
+const { post, small = false } = Astro.props;
+---
+<article class="post-preview">
+  <a href={post.url} >
+    <h2 class="title">{post.title}</h2>
+    {small ? null :( 
+      <>
+        <p>{post.description}</p>
+        <h4 class="publish-date">{post.publishDate}</h4>
+      </>
+    )}
+  </a>
+</article>
