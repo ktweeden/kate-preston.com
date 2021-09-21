@@ -9,6 +9,9 @@
   },
   "devDependencies": {
     "@astrojs/renderer-preact": "^0.2.1",
-    "astro": "^0.19.0"
+    "ansi-regex": ">=6.0.1",
+    "astro": "^0.19.0",
+    "nth-check": ">=2.0.1",
+    "prismjs": ">=1.25.0"
   }
 }
