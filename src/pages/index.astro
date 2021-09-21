@@ -15,7 +15,7 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishD
 <html lang={ 'en' }>
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
-    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="{Astro.resolve('../styles/index.css')}"/>
   </head>
 
   <body>
