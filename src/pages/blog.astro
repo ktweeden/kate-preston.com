@@ -13,10 +13,26 @@ let allPosts = Astro.fetchContent('./posts/*.md');
 allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 
 ---
+
+<style lang="scss">
+  @import "../styles/global.scss";
+  @import "../styles/partials/mixins.scss";
+
+  .content {
+    display: grid;
+    grid-template-areas: "side-l main side-r";
+    grid-template-columns: 20% auto 20%;
+
+    .blog-list {
+      grid-area: main;
+      padding-top: 2em;
+    }
+  }
+</style>
+
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
-    <link rel="stylesheet" href="{Astro.resolve('../styles/blog.css')}" />
   </head>
 
   <body>
@@ -27,7 +43,7 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishD
       </main>
     </div>
     <footer>
-      <Socials />
+      <Socials dark={true}/>
     </footer>
   </body>
 </html>

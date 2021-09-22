@@ -8,14 +8,107 @@ let description = '';
 let permalink = 'https://kate-preston.co.uk/';
 
 let allPosts = Astro.fetchContent('./posts/*.md');
-allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate)).slice(0,3);
+allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate)).slice(0,2);
 ---
+<style lang="scss">
+@import "../styles/global.scss";
+@import "../styles/partials/mixins.scss";
 
+  body {
+    display: grid;
+    @media screen and (min-width: 500px) {
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 65% 35%;
+      grid-template-areas:
+        "cover intro"
+        "cover blog";
+    }
+
+    @media screen and (max-width: 500px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 100vh 50vh 50vh;
+      grid-template-areas:
+        "cover"
+        "intro" 
+        "blog";
+    }
+  }
+
+  .cover {
+    grid-area: cover;
+    background-color: $pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    height: 100vh;
+
+    h1 {
+      color: white;
+      font-size: 6em;
+      text-align: left;
+    }
+
+    .highlight {
+      background-color: $yellow;
+      color: $dark;
+      padding: 0 0.5em;
+    }
+    p {
+      color: white;
+    }
+  }
+
+  .intro {
+    padding: 2em;
+    grid-area: intro;
+    background-color: $yellow;
+    height: 100%;
+
+    .about-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .about-me {
+        width: 100%;
+        font-size: 1.5rem;
+      }
+
+      .icon {
+        color: $blue;
+      }
+    }
+
+  }
+
+  .blog-preview {
+    grid-area: blog;
+    background-color: $green;
+    padding: 2em;
+
+    .blog-prev-title {
+      color: $dark;
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .read-more {
+      width: 100%;
+      text-align: right;
+
+      a:visited {
+        color: $dark;
+      }
+    }
+  }
+</style>
 
 <html lang={ 'en' }>
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
-    <link rel="stylesheet" href="{Astro.resolve('../styles/index.css')}"/>
   </head>
 
   <body>
@@ -32,9 +125,9 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishD
       <Socials />
     </section>
     <section class="blog-preview">
-    <h2>What I've been thinking about lately</h2>
-    {allPosts.map(p => <BlogPostPreview post={p} small={true}/>)}
-    <h3><a href="/blog">Read more</a></h3>
+      <h2 class="blog-prev-title">What I've been thinking about lately</h2>
+      {allPosts.map(p => <BlogPostPreview post={p} small={true}/>)}
+      <h3 class="read-more"><a href="/blog">Read more</a></h3>
     </section>
   </body>
 </html>

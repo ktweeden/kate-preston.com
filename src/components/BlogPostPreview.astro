@@ -6,14 +6,62 @@ export interface Props {
 
 const { post, small = false } = Astro.props;
 ---
-<article class="post-preview">
+
+<style lang="scss">
+  @import "../styles/partials/mixins.scss";
+
+ .post-preview {
+  &.small {
+    .title {
+      font-size: 1.25em;
+      color: white;
+      padding-top: 0.5rem;
+      @include hover-transition;
+
+      &:hover {
+        @include hover-background-effect(white, $green);
+      }
+    }
+  }
+
+  &:not(.small) {
+    margin-bottom: 2em;
+  }
+  
+  @include hover-transition;
+  
+  &:hover {
+    @include hover-background-effect($green-transparent);
+  }
+  .title {
+    color: $dark;
+  }
+
+  a: {
+    color: $dark;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: inherit;
+  }
+
+  .publish-date {
+    text-align: right;
+    width: 100%;
+    color: $dark;
+  }
+}
+</style>
+
+<article class={`post-preview ${small ? "small" : ""}`}>
   <a href={post.url} >
     <h2 class="title">{post.title}</h2>
     {small ? null :( 
-      <>
+      <div>
         <p>{post.description}</p>
         <h4 class="publish-date">{post.publishDate}</h4>
-      </>
+      </div>
     )}
   </a>
 </article>

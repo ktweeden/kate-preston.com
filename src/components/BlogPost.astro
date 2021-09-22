@@ -11,6 +11,37 @@ export interface Props {
 const { title, author, publishDate, heroImage, alt } = Astro.props;
 ---
 
+<style lang="scss">
+  @import "../styles/global.scss";
+  .blog-content {
+    display: grid;
+    grid-template-areas:
+      "side-l title side-r"
+      "side-l content side-r";
+    grid-template-columns: 20% auto 20%;
+
+    .blog-title {
+      grid-area: title;
+      h1 {
+        font-size: 4em;
+        text-align: center;
+        background-color: $green;
+      }
+    }
+
+    .publish-date {
+      grid-area: title;
+      width: 100%;
+      text-align: right;
+      padding: 1em;
+    }
+
+    .blog-text {
+      grid-area: content;
+    }
+  }
+</style>
+
 <article class="blog-content">
   <div class="blog-title">
     <h1 class="title">{title}</h1>

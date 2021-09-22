@@ -1,14 +1,72 @@
-<section class="social-container">
-    <a href="https://github.com/ktweeden">
-        <i class="fab fa-github"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/ktweeden/">
-        <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="https://twitter.com/ktweeden">
-        <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://www.instagram.com/kate_l_preston/">
-        <i class="fab fa-instagram"></i>
-    </a>
+---
+export interface Props {
+  dark?: boolean;
+}
+
+const { dark = false } = Astro.props;
+---
+
+
+<style lang="scss">
+  @import "../styles/partials/mixins.scss";
+  @import "../styles/global.scss";
+
+  .social-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    justify-self: flex-end;
+    align-self: flex-end;
+    font-size: 2em;
+
+    position: relative;
+    bottom: 1rem;
+
+    a {
+      padding-left: 0.5rem;
+      transition: transform 250ms;
+      text-decoration: none;
+      color: white;
+    }
+
+    a:hover {
+      transform: translateY(-10px);
+      color: $dark;
+    }
+
+    i {
+      color: inherit;
+    }
+
+    &.dark {
+      a {
+        color: $dark;
+      }
+
+      a:hover {
+        color: $pink;
+      }
+
+      a:visited {
+        color: $dark;
+      }
+    }
+  }
+</style>
+
+
+
+<section class={`social-container ${dark ? "dark" : ""}`}>
+  <a href="https://github.com/ktweeden">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/ktweeden/">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://twitter.com/ktweeden">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a href="https://www.instagram.com/kate_l_preston/">
+    <i class="fab fa-instagram"></i>
+  </a>
 </section>

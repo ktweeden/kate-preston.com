@@ -1,4 +1,4 @@
-@import "./global.scss";
+@import "../global";
 
 @mixin hover-transition {
   transition: 0.2s ease-in;
