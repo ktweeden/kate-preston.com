@@ -1,4 +1,3 @@
-# kate.preston.com
+# Personal site.
 
-Personal website of Kate Preston. Built with [Astro](https://astro.build/)
-
+Personal website of Kate Preston, hosted at [kate-preston.co.uk](kate-preston.co.uk). Built with [Astro](https://astro.build/)
