@@ -8,19 +8,38 @@
     flex-direction: row;
     justify-content: space-between;
 
+    @media screen and (min-width: 500px) {
+      flex-direction: row;
+    }
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+    }
+
     ul {
       display: flex;
       justify-content: space-between;
       list-style-type: none;
 
-      li {
-        padding: 0 0.5em;
+      @media screen and (min-width: 500px) {
+        padding: $medium-space $large-space;
       }
+      @media screen and (max-width: 500px) {
+        padding: $small-space;
+      }
+
+      li {
+        padding: 0 $small-space;
+      }
+
       a {
         background-color: $yellow;
         text-decoration: none;
-        padding: 0 0.5em;
+        padding: 0 $small-space;
         @include hover-transition;
+
+        @media screen and (max-width: 500px) {
+          font-size: 1.5em;
+        }
       }
       a:hover {
         @include hover-background-effect($green);
@@ -29,8 +48,17 @@
 
     h1 {
       color: $pink;
-      text-align: right;
-      padding: 0 1em;
+      margin: 0;
+
+      @media screen and (min-width: 500px) {
+        text-align: right;
+        padding: $medium-space $large-space;
+      }
+      @media screen and (max-width: 500px) {
+        display: none;
+        // text-align: center;
+        // padding: $small-space;
+      }
     }
   }
 </style>

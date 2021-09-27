@@ -15,7 +15,7 @@ const { post, small = false } = Astro.props;
     .title {
       font-size: 1.25em;
       color: white;
-      padding-top: 0.5rem;
+      padding-top: $small-space;
       @include hover-transition;
 
       &:hover {
@@ -25,7 +25,7 @@ const { post, small = false } = Astro.props;
   }
 
   &:not(.small) {
-    margin-bottom: 2em;
+    margin-bottom: $large-space;
   }
   
   @include hover-transition;
@@ -46,6 +46,10 @@ const { post, small = false } = Astro.props;
     color: inherit;
   }
 
+  .description {
+    font-size: 1.1em;
+  }
+
   .publish-date {
     text-align: right;
     width: 100%;
@@ -59,7 +63,7 @@ const { post, small = false } = Astro.props;
     <h2 class="title">{post.title}</h2>
     {small ? null :( 
       <div>
-        <p>{post.description}</p>
+        <p class="description">{post.description}</p>
         <h4 class="publish-date">{post.publishDate}</h4>
       </div>
     )}

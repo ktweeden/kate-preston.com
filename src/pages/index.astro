@@ -29,8 +29,8 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishD
       grid-template-rows: 100vh 50vh 50vh;
       grid-template-areas:
         "cover"
-        "intro" 
-        "blog";
+        "blog"
+        "intro";
     }
   }
 
@@ -41,27 +41,38 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishD
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2em;
+    padding: $large-space;
     height: 100vh;
 
     h1 {
       color: white;
-      font-size: 6em;
-      text-align: left;
+      @media screen and (min-width: 500px) {
+        font-size: 6em;
+        text-align: left;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 5em;
+        text-align: center;
+      }
     }
 
     .highlight {
       background-color: $yellow;
       color: $dark;
-      padding: 0 0.5em;
+      padding: 0 $small-space;
     }
     p {
       color: white;
+      font-size: 1.1em;
+
+      @media screen and (max-width: 500px) {
+        text-align: center;
+      }
     }
   }
 
   .intro {
-    padding: 2em;
+    padding: $large-space;
     grid-area: intro;
     background-color: $yellow;
     height: 100%;

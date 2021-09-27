@@ -10,34 +10,62 @@ export interface Props {
 
 const { title, author, publishDate, heroImage, alt } = Astro.props;
 ---
-
 <style lang="scss">
-  @import "../styles/global.scss";
+  @import "../styles/global";
+  @import "../styles/partials/mixins";
+
   .blog-content {
     display: grid;
     grid-template-areas:
       "side-l title side-r"
       "side-l content side-r";
-    grid-template-columns: 20% auto 20%;
+
+    @media screen and (min-width: 500px) {
+      grid-template-columns: 20% auto 20%;
+    }
+
+    @media screen and (max-width: 500px) {
+      grid-template-columns: 10% auto 10%;
+    }
 
     .blog-title {
       grid-area: title;
       h1 {
-        font-size: 4em;
         text-align: center;
         background-color: $green;
+        margin:0;
+        @media screen and (min-width: 500px) {
+          font-size: 4em;
+        }
+        @media screen and (max-width: 500px) {
+          font-size: 2em;
+        }
       }
-    }
 
-    .publish-date {
-      grid-area: title;
-      width: 100%;
-      text-align: right;
-      padding: 1em;
+      .publish-date {
+        width: 100%;
+        text-align: right;
+        padding: $medium-space;
+        background-color: $blue;
+        color: white;
+        margin: 0;
+      }
     }
 
     .blog-text {
       grid-area: content;
+      font-size: 1.1em;
+
+      p {
+        a {
+          color: $dark;
+          text-decoration: none;
+          @include hover-transition;
+          &:hover {
+            @include hover-background-effect(white, $green);
+          }
+        }
+      }
     }
   }
 </style>

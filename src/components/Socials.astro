@@ -13,17 +13,25 @@ const { dark = false } = Astro.props;
 
   .social-container {
     display: flex;
-    justify-content: flex-end;
     width: 100%;
-    justify-self: flex-end;
-    align-self: flex-end;
+    @media screen and (min-width: 500px) {
+      justify-content: flex-end;
+      justify-self: flex-end;
+      align-self: flex-end;
+    }
+    @media screen and (max-width: 500px) {
+      justify-content: space-between;
+    }
+    
     font-size: 2em;
 
     position: relative;
-    bottom: 1rem;
+    bottom: $medium-space;
 
     a {
-      padding-left: 0.5rem;
+      @media screen and (min-width: 500px) {
+        padding-left: $medium-space;
+      }
       transition: transform 250ms;
       text-decoration: none;
       color: white;
